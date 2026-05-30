@@ -3,10 +3,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { href: "/my-blog/", label: "Blog" },
-  { href: "/my-blog/about", label: "About Me" },
-  { href: "/my-blog/cves", label: "CVEs" },
-  { href: "/my-blog/contact", label: "Contact" },
+  { href: "/", label: "Blog" },
+  { href: "/about", label: "About Me" },
+  { href: "/cves", label: "CVEs" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Navbar() {
@@ -15,7 +15,7 @@ export default function Navbar() {
   return (
     <header className="border-b border-[#222] px-6 py-5 flex items-center justify-between max-w-5xl mx-auto w-full">
       <Link href="/" className="text-white font-bold tracking-widest text-sm uppercase hover:text-[#c8f000] transition-colors">
-        YOUR NAME
+        Kymu
       </Link>
       <nav className="flex gap-8">
         {navLinks.map(({ href, label }) => {
