@@ -127,7 +127,7 @@ export default function ArticlePage({ params }: PageProps) {
       </Link>
 
       <header className="mb-10 pb-8 border-b border-[#1a1a1a]">
-        <h1 className="text-4xl font-bold" style={{ fontFamily: "'Space Mono', monospace", color: "#ffffff" }}>{post.title}</h1>
+        <h1 className="text-4xl font-bold" style={{ fontFamily: "'Merriweather', serif", color: "#ffffff" }}>{post.title}</h1>
         <p className="text-xs text-[#555] tracking-widest font-mono">{post.date}</p>
       </header>
 
