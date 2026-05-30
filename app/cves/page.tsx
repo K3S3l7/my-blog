@@ -1,13 +1,12 @@
 const cves = [
   {
-    id: "CVE-2026-XXXXX",
-    title: "Example RCE in SomeProduct",
-    severity: "CRITICAL",
-    cvss: "9.8",
-    date: "2026 · 04 · 10",
+    id: "CVE-2026-0533",
+    title: "Stored XSS in Fusion Client",
+    severity: "HIGH",
+    cvss: "7.1",
     description:
-      "Remote code execution via unsanitized user input in the template engine of SomeProduct v1.2.3.",
-    link: "https://nvd.nist.gov/",
+      "A maliciously crafted HTML payload in a design name, when displayed during the delete confirmation dialog and clicked by a user, can trigger a Stored Cross-site Scripting (XSS) vulnerability in the Autodesk Fusion desktop application. A malicious actor may leverage this vulnerability to read local files or execute arbitrary code in the context of the current process.",
+    link: "https://www.autodesk.com/trust/security-advisories/adsk-sa-2026-0001",
   },
   {
     id: "CVE-2025-YYYYY",
