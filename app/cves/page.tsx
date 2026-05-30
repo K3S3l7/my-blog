@@ -58,7 +58,7 @@ export default function CVEsPage() {
                 href={cve.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs text-[#555] hover:text-[#c8f000] transition-colors"
+                className="text-xs text-[#c8f000] hover:text-white transition-colors"
               >
                 → ADVISORY
               </a>
