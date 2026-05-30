@@ -1,0 +1,25 @@
+import type { Metadata } from "next";
+import "./globals.css";
+import Navbar from "@/components/Navbar";
+
+export const metadata: Metadata = {
+  title: "Your Name — Security Blog",
+  description: "Security research, CVEs, and writeups.",
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <body className="bg-[#0d0d0d] text-[#d4d4d4] min-h-screen font-mono">
+        <div className="max-w-5xl mx-auto px-6">
+          <Navbar />
+          <main className="py-12">{children}</main>
+        </div>
+      </body>
+    </html>
+  );
+}
