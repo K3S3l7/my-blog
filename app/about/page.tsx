@@ -4,7 +4,7 @@ export default function AboutPage() {
       <p className="text-xs text-[#555] tracking-widest uppercase mb-6">— About Me</p>
 
       <h1 className="text-3xl font-bold text-white mb-6 leading-tight">
-        Hi, I&apos;m [Your Name]
+        Hi, I&apos;m Karim Belfodil {Kymu}
       </h1>
 
       <div className="space-y-4 text-[#aaa] text-sm leading-relaxed">
