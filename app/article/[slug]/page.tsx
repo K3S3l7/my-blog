@@ -39,21 +39,21 @@ function parseMarkdown(content: string): JSX.Element[] {
     // Headers
     else if (line.startsWith('### ')) {
       elements.push(
-        <h3 key={`h3-${i}`} className="text-lg font-bold mt-6 mb-3" style={{ color: "#ffffff", fontFamily: "Courier New, monospace" }}>
+        <h3 key={`h3-${i}`} className="text-lg font-bold mt-6 mb-3" style={{ color: "#ffffff", fontFamily: "Georgia, serif" }}>
           {line.slice(4)}
         </h3>
       );
       i++;
     } else if (line.startsWith('## ')) {
       elements.push(
-        <h2 key={`h2-${i}`} className="text-xl font-bold mt-8 mb-4" style={{ color: "#ffffff", fontFamily: "Courier New, monospace" }}>
+        <h2 key={`h2-${i}`} className="text-xl font-bold mt-8 mb-4" style={{ color: "#ffffff", fontFamily: "Georgia, serif" }}>
           {line.slice(3)}
         </h2>
       );
       i++;
     } else if (line.startsWith('# ')) {
       elements.push(
-        <h1 key={`h1-${i}`} className="text-2xl font-bold mt-10 mb-5" style={{ color: "#ffffff", fontFamily: "Courier New, monospace" }}>
+        <h1 key={`h1-${i}`} className="text-2xl font-bold mt-10 mb-5" style={{ color: "#ffffff", fontFamily: "Georgia, serif" }}>
           {line.slice(2)}
         </h1>
       );
@@ -62,7 +62,7 @@ function parseMarkdown(content: string): JSX.Element[] {
     // Lists
     else if (line.startsWith('- ')) {
       elements.push(
-        <li key={`li-${i}`} className="ml-4 mb-2" style={{ color: "#ffffff", fontFamily: "Courier New, monospace" }}>
+        <li key={`li-${i}`} className="ml-4 mb-2" style={{ color: "#ffffff", fontFamily: "Georgia, serif" }}>
           {line.slice(2)}
         </li>
       );
@@ -75,7 +75,7 @@ function parseMarkdown(content: string): JSX.Element[] {
     // Paragraph
     else {
       elements.push(
-        <p key={`p-${i}`} className="mb-4 leading-7" style={{ color: "#ffffff", fontFamily: "Courier New, monospace" }}>
+        <p key={`p-${i}`} className="mb-4 leading-7" style={{ color: "#ffffff", fontFamily: "Georgia, serif" }}>
           {line}
         </p>
       );
@@ -101,7 +101,7 @@ export default function ArticlePage({ params }: PageProps) {
   }
 
   return (
-    <article className="max-w-3xl mx-auto" style={{ fontFamily: "Courier New, monospace" }}>
+    <article className="max-w-3xl mx-auto">
       <Link
         href="/"
         className="text-xs text-[#555] hover:text-[#c8f000] transition-colors mb-8 inline-block tracking-widest"
@@ -110,11 +110,11 @@ export default function ArticlePage({ params }: PageProps) {
       </Link>
 
       <header className="mb-10 pb-8 border-b border-[#1a1a1a]">
-        <h1 className="text-4xl font-bold" style={{ fontFamily: "Courier New, monospace", color: "#ffffff" }} >{post.title}</h1>
+        <h1 className="text-4xl font-bold" style={{ fontFamily: "Georgia, serif", color: "#ffffff" }}>{post.title}</h1>
         <p className="text-xs text-[#555] tracking-widest font-mono">{post.date}</p>
       </header>
 
-      <div className="prose prose-invert max-w-none">
+      <div className="prose prose-invert max-w-none" style={{ fontFamily: "Georgia, serif" }}>
         {parseMarkdown(post.content)}
       </div>
     </article>
