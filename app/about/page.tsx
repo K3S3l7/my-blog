@@ -15,7 +15,7 @@ export default function AboutPage() {
           I'm Mostly interested in logical flaws, injections, DoS, exploit chains, and so on.
         </p>
         <p>
-          I&apos;ve reported vulnerabilities to companies like Nasa, Autodesk, CoinSpot,Twilio, X, and others.
+          I&apos;ve reported vulnerabilities to companies like Nasa, Autodesk, CoinSpot, Twilio, X, and others.
         </p>
         <p>
           Outside of hacking, I take pleasure in reading articles, exploring Islam, and working out.
