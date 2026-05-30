@@ -1,6 +1,7 @@
 import { getBlogPostBySlug, getAllBlogSlugs } from '@/lib/blog';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import hljs from 'highlight.js';
 
 interface PageProps {
   params: {
@@ -27,11 +28,27 @@ function parseMarkdown(content: string): JSX.Element[] {
         i++;
       }
 
+      const codeContent = codeLines.join('\n');
+      let highlightedCode = codeContent;
+
+      try {
+        highlightedCode = hljs.highlight(codeContent, { language, ignoreIllegals: true }).value;
+      } catch (e) {
+        // If language not recognized, try auto-detect
+        try {
+          highlightedCode = hljs.highlightAuto(codeContent).value;
+        } catch (e2) {
+          highlightedCode = codeContent;
+        }
+      }
+
       elements.push(
-        <pre key={`code-${i}`} className="bg-[#0a0a0a] border border-[#222] rounded p-4 my-4 overflow-x-auto" style={{ fontFamily: "Courier New, monospace" }}>
-          <code className="text-[#c8f000] text-sm leading-6 whitespace-pre" style={{ fontFamily: "Courier New, monospace" }}>
-            {codeLines.join('\n')}
-          </code>
+        <pre key={`code-${i}`} className="bg-[#0a0a0a] border border-[#222] rounded p-4 my-4 overflow-x-auto">
+          <code 
+            className="text-sm leading-6 whitespace-pre" 
+            style={{ fontFamily: "Courier New, monospace" }}
+            dangerouslySetInnerHTML={{ __html: highlightedCode }}
+          />
         </pre>
       );
       i++; // Skip closing ```
