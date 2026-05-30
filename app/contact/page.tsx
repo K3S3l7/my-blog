@@ -12,7 +12,7 @@ export default function ContactPage() {
       <ul className="space-y-4 text-sm">
         {[
           { label: "Email", value: "kimuxsxs@gmail.com", href: "mailto:kimuxsxs@gmail.com" },
-          { label: "Twitter / X", value: "@kymu_", href: "https://x.com/kymu_" },
+          { label: "Twitter / X", value: "@kymu__", href: "https://x.com/kymu_" },
           { label: "LinkedIn", value: "Karim Belfodil", href: "https://linkedin.com/in/qatada" },
         ].map(({ label, value, href }) => (
           <li key={label} className="flex items-center gap-4 border-b border-[#1a1a1a] pb-4">
