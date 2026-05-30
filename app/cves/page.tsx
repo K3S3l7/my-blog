@@ -9,7 +9,7 @@ const cves = [
     link: "https://www.autodesk.com/trust/security-advisories/adsk-sa-2026-0001",
   },
   {
-    id: "CVE-2025-4345",
+    id: "CVE-2026-4345",
     title: "Stored XSS in Autodesk Fusion Client",
     severity: "HIGH",
     cvss: "7.1",
