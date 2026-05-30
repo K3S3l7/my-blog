@@ -13,7 +13,7 @@ export default function ContactPage() {
         {[
           { label: "Email", value: "kimuxsxs@gmail.com", href: "mailto:kimuxsxs@gmail.com" },
           { label: "Twitter / X", value: "@kymu_", href: "https://x.com/kymu_" },
-          { label: "LinkedIn", value: "Linkedin.com/qatada", href: "https://linkedin.com/qatada" },
+          { label: "LinkedIn", value: "Karim Belfodil", href: "https://linkedin.com/in/qatada" },
         ].map(({ label, value, href }) => (
           <li key={label} className="flex items-center gap-4 border-b border-[#1a1a1a] pb-4">
             <span className="text-[#444] w-28 shrink-0 tracking-widest text-xs uppercase">{label}</span>
