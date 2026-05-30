@@ -11,14 +11,17 @@ const navLinks = [
 
 export default function Navbar() {
   const pathname = usePathname();
+  
+  // Remove basePath from pathname since we have basePath: "/my-blog" in next.config.js
+  const path = pathname.replace(/^\/my-blog/, "") || "/";
 
   const isActive = (href: string) => {
     // For home page, match "/" or any article path
     if (href === "/") {
-      return pathname === "/" || pathname.startsWith("/article/");
+      return path === "/" || path.startsWith("/article/");
     }
     // For other pages, exact match
-    return pathname === href;
+    return path === href;
   };
 
   return (
