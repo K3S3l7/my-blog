@@ -5,6 +5,9 @@ import Navbar from "@/components/Navbar";
 export const metadata: Metadata = {
   title: "Kymu — Security Research Blog",
   description: "Security research, CVEs, and writeups.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
