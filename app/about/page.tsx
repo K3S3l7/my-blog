@@ -27,7 +27,7 @@ export default function AboutPage() {
         <ul className="space-y-2 text-sm">
           {[
             { label: "GitHub", href: "https://github.com/k3s3l7" },
-            { label: "Twitter / X", href: "https://x.com/kymu__" },
+            { label: "Twitter / X", href: "https://x.com/kymu___" },
             { label: "HackerOne", href: "https://hackerone.com/kymu_" },
           ].map(({ label, href }) => (
             <li key={label}>
