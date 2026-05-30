@@ -15,9 +15,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-[#0d0d0d] text-[#d4d4d4] min-h-screen font-mono">
-        <div className="max-w-5xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-10">
           <Navbar />
-          <main className="py-12">{children}</main>
+          <main className="py-16 px-2">{children}</main>
         </div>
       </body>
     </html>

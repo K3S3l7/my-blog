@@ -19,22 +19,22 @@ const posts = [
 export default function BlogPage() {
   return (
     <div>
-      <div className="flex items-center justify-between mb-10 text-xs text-[#555] tracking-widest uppercase">
+      <div className="flex items-center justify-between mb-12 text-xs text-[#555] tracking-widest uppercase border-b border-[#1a1a1a] pb-4">
         <span>— Posts</span>
         <span>{posts.length} / {posts.length}</span>
       </div>
 
-      <ul className="space-y-0 divide-y divide-[#1a1a1a]">
+      <ul className="divide-y divide-[#141414]">
         {posts.map((post) => (
           <li key={post.slug}>
             <Link
               href={`/blog/${post.slug}`}
-              className="flex items-baseline gap-6 py-4 group hover:bg-[#111] px-2 -mx-2 transition-colors"
+              className="flex items-baseline gap-8 py-5 group hover:bg-[#0f0f0f] px-3 -mx-3 transition-colors"
             >
-              <span className="text-xs text-[#444] w-28 shrink-0 tracking-widest">
+              <span className="text-xs text-[#3a3a3a] w-32 shrink-0 tracking-widest font-mono">
                 {post.date}
               </span>
-              <span className="text-[#d4d4d4] group-hover:text-[#c8f000] transition-colors text-sm">
+              <span className="text-[#c0c0c0] group-hover:text-[#c8f000] transition-colors text-base tracking-wide">
                 {post.title}
               </span>
             </Link>
