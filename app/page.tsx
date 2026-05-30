@@ -30,7 +30,7 @@ export default function BlogPage() {
               href={`/article/${post.slug}`}
               className="flex items-baseline gap-8 py-5 group hover:bg-[#0f0f0f] px-3 -mx-3 transition-colors"
             >
-              <span className="text-xs text-[#3a3a3a] w-32 shrink-0 tracking-widest font-mono">
+              <span className="text-xs text-[#6a6a6a] w-32 shrink-0 tracking-widest font-mono">
                 {formatDate(post.date)}
               </span>
               <span className="group-hover:text-[#c8f000] transition-colors text-base text-white" style={{ fontFamily: "'Space Mono', monospace" }}>
