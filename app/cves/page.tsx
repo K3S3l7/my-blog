@@ -48,7 +48,7 @@ export default function CVEsPage() {
                 <span className={`text-xs font-bold tracking-widest ${severityColor[cve.severity] ?? "text-[#888]"}`}>
                   {cve.severity}
                 </span>
-                <p className="text-xs text-white mt-0.5">CVSS {cve.cvss}</p>
+                <p className="text-xs text-grey mt-0.5">CVSS {cve.cvss}</p>
               </div>
             </div>
             <p className="text-xs text-[#999] mb-3">{cve.description}</p>
