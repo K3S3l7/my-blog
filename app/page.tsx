@@ -33,7 +33,7 @@ export default function BlogPage() {
               <span className="text-xs text-[#3a3a3a] w-32 shrink-0 tracking-widest font-mono">
                 {formatDate(post.date)}
               </span>
-              <span className="font-mono group-hover:text-[#c8f000] transition-colors text-base" style={{ color: "#ffffff", fontFamily: "Courier New, monospace" }}>
+              <span className="group-hover:text-[#c8f000] transition-colors text-base text-white" style={{ fontFamily: "Courier New, monospace" }}>
                 {post.title}
               </span>
             </Link>
