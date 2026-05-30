@@ -12,6 +12,15 @@ const navLinks = [
 export default function Navbar() {
   const pathname = usePathname();
 
+  const isActive = (href: string) => {
+    // For home page, match "/" or any article path
+    if (href === "/") {
+      return pathname === "/" || pathname.startsWith("/article/");
+    }
+    // For other pages, exact match
+    return pathname === href;
+  };
+
   return (
     <header className="border-b border-[#222] py-6 flex items-center justify-between w-full">
       <Link href="/" className="text-white font-bold tracking-widest text-base uppercase hover:text-[#c8f000] transition-colors">
@@ -19,7 +28,7 @@ export default function Navbar() {
       </Link>
       <nav className="flex gap-10">
         {navLinks.map(({ href, label }) => {
-          const active = pathname === href;
+          const active = isActive(href);
           return (
             <Link
               key={href}
