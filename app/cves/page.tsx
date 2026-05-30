@@ -20,7 +20,7 @@ const cves = [
 ];
 
 const severityColor: Record<string, string> = {
-  CRITICAL: "text-red-400",
+  CRITICAL: "text-red-500",
   HIGH: "text-orange-400",
   MEDIUM: "text-yellow-400",
   LOW: "text-green-400",
