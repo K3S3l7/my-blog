@@ -3,9 +3,9 @@ const nextConfig = {
   output: "export",
   trailingSlash: true,
   images: { unoptimized: true },
-  // Set this to your repo name if deploying to username.github.io/repo-name
-  // basePath: "/my-blog",
-  // assetPrefix: "/my-blog/",
+  // Repo is K3S3l7/my-blog so the site lives at /my-blog
+  basePath: "/my-blog",
+  assetPrefix: "/my-blog/",
 };
 
 module.exports = nextConfig;

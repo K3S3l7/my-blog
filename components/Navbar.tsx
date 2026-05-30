@@ -3,10 +3,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { href: "/", label: "Blog" },
-  { href: "/about", label: "About Me" },
-  { href: "/cves", label: "CVEs" },
-  { href: "/contact", label: "Contact" },
+  { href: "/my-blog/", label: "Blog" },
+  { href: "/my-blog/about", label: "About Me" },
+  { href: "/my-blog/cves", label: "CVEs" },
+  { href: "/my-blog/contact", label: "Contact" },
 ];
 
 export default function Navbar() {
