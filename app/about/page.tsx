@@ -26,10 +26,10 @@ export default function AboutPage() {
         <p className="text-xs text-[#555] tracking-widest uppercase mb-4">— Links</p>
         <ul className="space-y-2 text-sm">
           {[
-            { label: "GitHub", href: "https://github.com/k3s3l7" },
             { label: "Twitter / X", href: "https://x.com/kymu___" },
             { label: "HackerOne", href: "https://hackerone.com/kymu_" },
             { label: "Bugcrowd", href: "https://bugcrowd.com/h/kymu" },
+            { label: "YesWeHack", href: "https://yeswehack.com/hunters/kymu" },
           ].map(({ label, href }) => (
             <li key={label}>
               <a
