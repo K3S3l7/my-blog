@@ -39,21 +39,21 @@ function parseMarkdown(content: string): JSX.Element[] {
     // Headers
     else if (line.startsWith('### ')) {
       elements.push(
-        <h3 key={`h3-${i}`} className="text-lg font-bold mt-6 mb-3" style={{ color: "#ffffff", fontFamily: "'Merriweather', serif" }}>
+        <h3 key={`h3-${i}`} className="text-lg font-bold mt-6 mb-3" style={{ color: "#d4d4d4", fontFamily: "'Merriweather', serif" }}>
           {line.slice(4)}
         </h3>
       );
       i++;
     } else if (line.startsWith('## ')) {
       elements.push(
-        <h2 key={`h2-${i}`} className="text-xl font-bold mt-8 mb-4" style={{ color: "#ffffff", fontFamily: "'Merriweather', serif" }}>
+        <h2 key={`h2-${i}`} className="text-xl font-bold mt-8 mb-4" style={{ color: "#d4d4d4", fontFamily: "'Merriweather', serif" }}>
           {line.slice(3)}
         </h2>
       );
       i++;
     } else if (line.startsWith('# ')) {
       elements.push(
-        <h1 key={`h1-${i}`} className="text-2xl font-bold mt-10 mb-5" style={{ color: "#ffffff", fontFamily: "'Merriweather', serif" }}>
+        <h1 key={`h1-${i}`} className="text-2xl font-bold mt-10 mb-5" style={{ color: "#d4d4d4", fontFamily: "'Merriweather', serif" }}>
           {line.slice(2)}
         </h1>
       );
@@ -62,7 +62,7 @@ function parseMarkdown(content: string): JSX.Element[] {
     // Lists
     else if (line.startsWith('- ')) {
       elements.push(
-        <li key={`li-${i}`} className="ml-4 mb-2" style={{ color: "#ffffff", fontFamily: "'Merriweather', serif" }}>
+        <li key={`li-${i}`} className="ml-4 mb-2" style={{ color: "#d4d4d4", fontFamily: "'Merriweather', serif" }}>
           {line.slice(2)}
         </li>
       );
@@ -75,7 +75,7 @@ function parseMarkdown(content: string): JSX.Element[] {
     // Paragraph
     else {
       elements.push(
-        <p key={`p-${i}`} className="mb-4 leading-7" style={{ color: "#ffffff", fontFamily: "'Merriweather', serif" }}>
+        <p key={`p-${i}`} className="mb-4 leading-7" style={{ color: "#d4d4d4", fontFamily: "'Merriweather', serif" }}>
           {line}
         </p>
       );
