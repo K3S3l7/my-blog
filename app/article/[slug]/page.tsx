@@ -39,21 +39,21 @@ function parseMarkdown(content: string): JSX.Element[] {
     // Headers
     else if (line.startsWith('### ')) {
       elements.push(
-        <h3 key={`h3-${i}`} className="text-lg font-bold mt-6 mb-3 text-[#c0c0c0]">
+        <h3 key={`h3-${i}`} className="text-lg font-bold mt-6 mb-3 text-white">
           {line.slice(4)}
         </h3>
       );
       i++;
     } else if (line.startsWith('## ')) {
       elements.push(
-        <h2 key={`h2-${i}`} className="text-xl font-bold mt-8 mb-4 text-[#c0c0c0]">
+        <h2 key={`h2-${i}`} className="text-xl font-bold mt-8 mb-4 text-white">
           {line.slice(3)}
         </h2>
       );
       i++;
     } else if (line.startsWith('# ')) {
       elements.push(
-        <h1 key={`h1-${i}`} className="text-2xl font-bold mt-10 mb-5 text-[#c8f000]">
+        <h1 key={`h1-${i}`} className="text-2xl font-bold mt-10 mb-5 text-white">
           {line.slice(2)}
         </h1>
       );
@@ -62,7 +62,7 @@ function parseMarkdown(content: string): JSX.Element[] {
     // Lists
     else if (line.startsWith('- ')) {
       elements.push(
-        <li key={`li-${i}`} className="ml-4 text-[#c0c0c0] mb-2">
+        <li key={`li-${i}`} className="ml-4 text-white mb-2">
           {line.slice(2)}
         </li>
       );
@@ -75,7 +75,7 @@ function parseMarkdown(content: string): JSX.Element[] {
     // Paragraph
     else {
       elements.push(
-        <p key={`p-${i}`} className="text-[#c0c0c0] mb-4 leading-7">
+        <p key={`p-${i}`} className="text-white mb-4 leading-7">
           {line}
         </p>
       );
@@ -101,7 +101,7 @@ export default function ArticlePage({ params }: PageProps) {
   }
 
   return (
-    <article className="max-w-3xl mx-auto">
+    <article className="max-w-3xl mx-auto" style={{ fontFamily: 'Georgia, serif' }}>
       <Link
         href="/"
         className="text-xs text-[#555] hover:text-[#c8f000] transition-colors mb-8 inline-block tracking-widest"
@@ -110,7 +110,7 @@ export default function ArticlePage({ params }: PageProps) {
       </Link>
 
       <header className="mb-10 pb-8 border-b border-[#1a1a1a]">
-        <h1 className="text-3xl font-bold text-[#c8f000] mb-3">{post.title}</h1>
+        <h1 className="text-4xl font-bold text-white mb-3" style={{ fontFamily: 'Georgia, serif' }}>{post.title}</h1>
         <p className="text-xs text-[#555] tracking-widest font-mono">{post.date}</p>
       </header>
 
