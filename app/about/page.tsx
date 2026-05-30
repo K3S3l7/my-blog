@@ -9,15 +9,14 @@ export default function AboutPage() {
 
       <div className="space-y-4 text-[#aaa] text-sm leading-relaxed">
         <p>
-          Security researcher focused on web application security, bug bounty hunting,
-          and vulnerability research. I write about what I find.
+          Security researcher focused on web application security, Software Exploitation, and other assets
+          I'm Mostly interested in logical flaws, injections, exploit chains, and so on.
         </p>
         <p>
-          I&apos;ve reported vulnerabilities to companies like [Company A], [Company B],
-          and earned recognition on several Hall of Fame programs.
+          I&apos;ve reported vulnerabilities to companies like Nasa, Autodesk, CoinSpot, and others.
         </p>
         <p>
-          When I&apos;m not breaking things, I&apos;m writing about how I broke them.
+          Outside of hacking, I take pleasure in reading articles, exploring Islam, and working out.
         </p>
       </div>
 
@@ -25,9 +24,9 @@ export default function AboutPage() {
         <p className="text-xs text-[#555] tracking-widest uppercase mb-4">— Links</p>
         <ul className="space-y-2 text-sm">
           {[
-            { label: "GitHub", href: "https://github.com/yourusername" },
-            { label: "Twitter / X", href: "https://x.com/yourusername" },
-            { label: "HackerOne", href: "https://hackerone.com/yourusername" },
+            { label: "GitHub", href: "https://github.com/k3s3l7" },
+            { label: "Twitter / X", href: "https://x.com/kymu__" },
+            { label: "HackerOne", href: "https://hackerone.com/kymu_" },
           ].map(({ label, href }) => (
             <li key={label}>
               <a
