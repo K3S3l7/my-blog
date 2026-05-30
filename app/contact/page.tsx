@@ -11,10 +11,9 @@ export default function ContactPage() {
 
       <ul className="space-y-4 text-sm">
         {[
-          { label: "Email", value: "you@example.com", href: "mailto:you@example.com" },
-          { label: "Twitter / X", value: "@yourusername", href: "https://x.com/yourusername" },
-          { label: "GitHub", value: "github.com/yourusername", href: "https://github.com/yourusername" },
-          { label: "HackerOne", value: "hackerone.com/yourusername", href: "https://hackerone.com/yourusername" },
+          { label: "Email", value: "kimuxsxs@gmail.com", href: "mailto:kimuxsxs@gmail.com" },
+          { label: "Twitter / X", value: "@kymu_", href: "https://x.com/kymu_" },
+          { label: "LinkedIn", value: "Linkedin.com/qatada", href: "https://linkedin.com/qatada" },
         ].map(({ label, value, href }) => (
           <li key={label} className="flex items-center gap-4 border-b border-[#1a1a1a] pb-4">
             <span className="text-[#444] w-28 shrink-0 tracking-widest text-xs uppercase">{label}</span>
