@@ -29,6 +29,7 @@ export default function AboutPage() {
             { label: "GitHub", href: "https://github.com/k3s3l7" },
             { label: "Twitter / X", href: "https://x.com/kymu___" },
             { label: "HackerOne", href: "https://hackerone.com/kymu_" },
+            { label: "Bugcrowd", href: "https://hackerone.com/kymu" },
           ].map(({ label, href }) => (
             <li key={label}>
               <a
