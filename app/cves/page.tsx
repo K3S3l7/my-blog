@@ -2,7 +2,7 @@ const cves = [
   {
     id: "CVE-2026-0533",
     title: "Stored XSS in Autodesk Fusion Client",
-    severity: "HIGH",
+    severity: "CRITICAL",
     cvss: "7.1",
     description:
       "A maliciously crafted HTML payload in a design name, when displayed during the delete confirmation dialog and clicked by a user, can trigger a Stored Cross-site Scripting (XSS) vulnerability in the Autodesk Fusion desktop application. A malicious actor may leverage this vulnerability to read local files or execute arbitrary code in the context of the current process.",
