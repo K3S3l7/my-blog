@@ -42,7 +42,6 @@ export default function CVEsPage() {
           >
             <div className="flex items-start justify-between gap-4 mb-2">
               <div>
-                <span className="text-xs text-[#444] tracking-widest">{cve.date}</span>
                 <h2 className="text-white text-sm font-bold mt-1">{cve.title}</h2>
               </div>
               <div className="text-right shrink-0">
