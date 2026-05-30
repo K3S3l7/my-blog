@@ -17,7 +17,7 @@ export default function BlogPage() {
   const posts = getAllBlogPosts();
 
   return (
-    <div>
+    <div style={{ fontFamily: "'Space Mono', monospace" }}>
       <div className="flex items-center justify-between mb-12 text-xs text-[#555] tracking-widest uppercase border-b border-[#1a1a1a] pb-4">
         <span>— Posts</span>
         <span>{posts.length} / {posts.length}</span>
@@ -33,7 +33,7 @@ export default function BlogPage() {
               <span className="text-xs text-[#3a3a3a] w-32 shrink-0 tracking-widest font-mono">
                 {formatDate(post.date)}
               </span>
-              <span className="group-hover:text-[#c8f000] transition-colors text-base text-white" style={{ fontFamily: "Georgia, serif" }}>
+              <span className="group-hover:text-[#c8f000] transition-colors text-base text-white" style={{ fontFamily: "'Space Mono', monospace" }}>
                 {post.title}
               </span>
             </Link>
