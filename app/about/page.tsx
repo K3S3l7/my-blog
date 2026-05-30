@@ -3,7 +3,7 @@ export default function AboutPage() {
     <div className="max-w-2xl">
       <p className="text-xs text-[#555] tracking-widest uppercase mb-6">— About Me</p>
 
-      <h1 className="text-3xl font-bold text-white mb-6 leading-tight">
+      <h1 className="text-3xl font-bold text-white mb-6 leading-tight" style={{ fontFamily: "'Merriweather', serif" }}>
         Hi, I&apos;m Karim Belfodil (Kymu)
       </h1>
 
