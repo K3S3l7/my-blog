@@ -14,7 +14,7 @@ const cves = [
     severity: "HIGH",
     cvss: "7.1",
     description:
-      "A maliciously crafted HTML payload, stored in a design name and exported to CSV, can trigger a Stored Cross-site Scripting (XSS) vulnerability in the Autodesk Fusion desktop application. A malicious actor may leverage this vulnerability to read local files or execute arbitrary code in the context of the current process.",
+      "A Maliciously crafted HTML payload, stored in a design name and exported to CSV, can trigger a Stored Cross-site Scripting (XSS) vulnerability in the Autodesk Fusion desktop application. A malicious actor may leverage this vulnerability to read local files or execute arbitrary code in the context of the current process.",
     link: "https://www.autodesk.com/trust/security-advisories/adsk-sa-2026-0005",
   },
 ];
