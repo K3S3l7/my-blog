@@ -9,14 +9,13 @@ const cves = [
     link: "https://www.autodesk.com/trust/security-advisories/adsk-sa-2026-0001",
   },
   {
-    id: "CVE-2025-YYYYY",
-    title: "XSS in AnotherApp",
+    id: "CVE-2025-4345",
+    title: "Stored XSS in Fusion Client",
     severity: "HIGH",
-    cvss: "7.4",
-    date: "2025 · 11 · 01",
+    cvss: "7.1",
     description:
-      "Stored XSS allowing session hijacking via the profile bio field in AnotherApp.",
-    link: "https://nvd.nist.gov/",
+      "A maliciously crafted HTML payload, stored in a design name and exported to CSV, can trigger a Stored Cross-site Scripting (XSS) vulnerability in the Autodesk Fusion desktop application. A malicious actor may leverage this vulnerability to read local files or execute arbitrary code in the context of the current process.",
+    link: "https://www.autodesk.com/trust/security-advisories/adsk-sa-2026-0005",
   },
 ];
 
@@ -62,7 +61,7 @@ export default function CVEsPage() {
                 rel="noopener noreferrer"
                 className="text-xs text-[#555] hover:text-[#c8f000] transition-colors"
               >
-                → NVD
+                → ADVISORY
               </a>
             </div>
           </li>
