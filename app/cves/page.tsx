@@ -1,7 +1,7 @@
 const cves = [
   {
     id: "CVE-2026-0533",
-    title: "Stored XSS in Fusion Client",
+    title: "Stored XSS in Autodesk Fusion Client",
     severity: "HIGH",
     cvss: "7.1",
     description:
@@ -10,7 +10,7 @@ const cves = [
   },
   {
     id: "CVE-2025-4345",
-    title: "Stored XSS in Fusion Client",
+    title: "Stored XSS in Autodesk Fusion Client",
     severity: "HIGH",
     cvss: "7.1",
     description:
