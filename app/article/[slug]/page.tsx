@@ -1,0 +1,102 @@
+import { getBlogPostBySlug, getAllBlogSlugs } from '@/lib/blog';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
+
+interface PageProps {
+  params: {
+    slug: string;
+  };
+}
+
+function parseMarkdown(content: string): JSX.Element[] {
+  const lines = content.split('\n');
+  const elements: JSX.Element[] = [];
+  let i = 0;
+
+  while (i < lines.length) {
+    const line = lines[i];
+
+    // Headers
+    if (line.startsWith('### ')) {
+      elements.push(
+        <h3 key={`h3-${i}`} className="text-lg font-bold mt-6 mb-3 text-[#c0c0c0]">
+          {line.slice(4)}
+        </h3>
+      );
+      i++;
+    } else if (line.startsWith('## ')) {
+      elements.push(
+        <h2 key={`h2-${i}`} className="text-xl font-bold mt-8 mb-4 text-[#c0c0c0]">
+          {line.slice(3)}
+        </h2>
+      );
+      i++;
+    } else if (line.startsWith('# ')) {
+      elements.push(
+        <h1 key={`h1-${i}`} className="text-2xl font-bold mt-10 mb-5 text-[#c8f000]">
+          {line.slice(2)}
+        </h1>
+      );
+      i++;
+    }
+    // Lists
+    else if (line.startsWith('- ')) {
+      elements.push(
+        <li key={`li-${i}`} className="ml-4 text-[#c0c0c0] mb-2">
+          {line.slice(2)}
+        </li>
+      );
+      i++;
+    }
+    // Empty line
+    else if (line.trim() === '') {
+      i++;
+    }
+    // Paragraph
+    else {
+      elements.push(
+        <p key={`p-${i}`} className="text-[#c0c0c0] mb-4 leading-7">
+          {line}
+        </p>
+      );
+      i++;
+    }
+  }
+
+  return elements;
+}
+
+export async function generateStaticParams() {
+  const slugs = getAllBlogSlugs();
+  return slugs.map((slug) => ({
+    slug,
+  }));
+}
+
+export default function ArticlePage({ params }: PageProps) {
+  const post = getBlogPostBySlug(params.slug);
+
+  if (!post) {
+    notFound();
+  }
+
+  return (
+    <article className="max-w-3xl mx-auto">
+      <Link
+        href="/"
+        className="text-xs text-[#555] hover:text-[#c8f000] transition-colors mb-8 inline-block tracking-widest"
+      >
+        ← Back to Posts
+      </Link>
+
+      <header className="mb-10 pb-8 border-b border-[#1a1a1a]">
+        <h1 className="text-3xl font-bold text-[#c8f000] mb-3">{post.title}</h1>
+        <p className="text-xs text-[#555] tracking-widest font-mono">{post.date}</p>
+      </header>
+
+      <div className="prose prose-invert max-w-none">
+        {parseMarkdown(post.content)}
+      </div>
+    </article>
+  );
+}

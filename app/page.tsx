@@ -1,22 +1,9 @@
 import Link from "next/link";
-
-// Replace these with your real posts
-const posts = [
-  {
-    slug: "hello-world",
-    date: "2026 · 05 · 30",
-    title: "Hello World — My First Post",
-    tags: ["WEB"],
-  },
-  {
-    slug: "cve-2026-example",
-    date: "2026 · 04 · 10",
-    title: "CVE-2026-XXXXX — Example Vulnerability",
-    tags: ["CVE", "RCE"],
-  },
-];
+import { getAllBlogPosts } from "@/lib/blog";
 
 export default function BlogPage() {
+  const posts = getAllBlogPosts();
+
   return (
     <div>
       <div className="flex items-center justify-between mb-12 text-xs text-[#555] tracking-widest uppercase border-b border-[#1a1a1a] pb-4">
@@ -28,7 +15,7 @@ export default function BlogPage() {
         {posts.map((post) => (
           <li key={post.slug}>
             <Link
-              href={`/blog/${post.slug}`}
+              href={`/article/${post.slug}`}
               className="flex items-baseline gap-8 py-5 group hover:bg-[#0f0f0f] px-3 -mx-3 transition-colors"
             >
               <span className="text-xs text-[#3a3a3a] w-32 shrink-0 tracking-widest font-mono">
