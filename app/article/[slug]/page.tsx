@@ -28,8 +28,8 @@ function parseMarkdown(content: string): JSX.Element[] {
       }
 
       elements.push(
-        <pre key={`code-${i}`} className="bg-[#0a0a0a] border border-[#222] rounded p-4 my-4 overflow-x-auto">
-          <code className="text-[#c8f000] text-sm font-mono leading-6 whitespace-pre">
+        <pre key={`code-${i}`} className="bg-[#0a0a0a] border border-[#222] rounded p-4 my-4 overflow-x-auto" style={{ fontFamily: "Courier New, monospace" }}>
+          <code className="text-[#c8f000] text-sm leading-6 whitespace-pre" style={{ fontFamily: "Courier New, monospace" }}>
             {codeLines.join('\n')}
           </code>
         </pre>
