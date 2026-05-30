@@ -16,8 +16,28 @@ function parseMarkdown(content: string): JSX.Element[] {
   while (i < lines.length) {
     const line = lines[i];
 
+    // Code blocks
+    if (line.startsWith('```')) {
+      const language = line.slice(3).trim() || 'text';
+      const codeLines: string[] = [];
+      i++;
+
+      while (i < lines.length && !lines[i].startsWith('```')) {
+        codeLines.push(lines[i]);
+        i++;
+      }
+
+      elements.push(
+        <pre key={`code-${i}`} className="bg-[#0a0a0a] border border-[#222] rounded p-4 my-4 overflow-x-auto">
+          <code className="text-[#c8f000] text-sm font-mono leading-6 whitespace-pre">
+            {codeLines.join('\n')}
+          </code>
+        </pre>
+      );
+      i++; // Skip closing ```
+    }
     // Headers
-    if (line.startsWith('### ')) {
+    else if (line.startsWith('### ')) {
       elements.push(
         <h3 key={`h3-${i}`} className="text-lg font-bold mt-6 mb-3 text-[#c0c0c0]">
           {line.slice(4)}
