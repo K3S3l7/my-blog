@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 const navLinks = [
   { href: "/", label: "Blog" },
@@ -11,6 +12,7 @@ const navLinks = [
 
 export default function Navbar() {
   const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
   
   // Remove basePath from pathname since we have basePath: "/my-blog" in next.config.js
   const path = pathname.replace(/^\/my-blog/, "") || "/";
@@ -25,11 +27,13 @@ export default function Navbar() {
   };
 
   return (
-    <header className="border-b border-[#222] py-6 flex items-center justify-between w-full">
+    <header className="border-b border-[#222] py-6 flex items-center justify-between w-full px-4">
       <Link href="/" className="text-white font-bold tracking-widest text-base uppercase hover:text-[#c8f000] transition-colors">
         Kymu
       </Link>
-      <nav className="flex gap-10">
+      
+      {/* Desktop Navigation */}
+      <nav className="hidden md:flex gap-10">
         {navLinks.map(({ href, label }) => {
           const active = isActive(href);
           return (
@@ -47,6 +51,44 @@ export default function Navbar() {
           );
         })}
       </nav>
+
+      {/* Mobile Menu Button */}
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="md:hidden text-[#c8f000] hover:text-white transition-colors"
+        aria-label="Toggle menu"
+      >
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          {isOpen ? (
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          ) : (
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          )}
+        </svg>
+      </button>
+
+      {/* Mobile Navigation */}
+      {isOpen && (
+        <nav className="absolute top-full left-0 right-0 bg-[#0d0d0d] border-b border-[#222] flex flex-col md:hidden">
+          {navLinks.map(({ href, label }) => {
+            const active = isActive(href);
+            return (
+              <Link
+                key={href}
+                href={href}
+                onClick={() => setIsOpen(false)}
+                className={`px-4 py-3 text-sm tracking-widest uppercase transition-colors border-l-2 ${
+                  active
+                    ? "text-[#c8f000] border-[#c8f000] bg-[#0f0f0f]"
+                    : "text-[#888] border-transparent hover:text-[#d4d4d4]"
+                }`}
+              >
+                {label}
+              </Link>
+            );
+          })}
+        </nav>
+      )}
     </header>
   );
 }
