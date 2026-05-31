@@ -9,10 +9,10 @@ export default function AboutPage() {
 
       <div className="space-y-4 text-[#aaa] text-sm leading-relaxed">
         <p>
-          Security researcher focused on web application security, Software Exploitation, and other assets security.
+          Cyber Security researcher focused on web application, Software Exploitation, and other assets security.
           </p>
           <p>
-          I'm Mostly interested in logical flaws, injections, DoS, exploit chains, and so on.
+          I'm Mostly interested in logical flaws, injection attacks, DoS, exploit chains, and so on.
         </p>
         <p>
           I&apos;ve reported vulnerabilities to companies like Nasa, Autodesk, CoinSpot, Twilio, X, and others.
