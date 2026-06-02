@@ -121,7 +121,7 @@ export default function ArticlePage({ params }: PageProps) {
     <article className="max-w-3xl mx-auto" style={{ fontFamily: "'Merriweather', serif" }}>
       <Link
         href="/"
-        className="text-xs text-[#555] hover:text-[#c8f000] transition-colors mb-8 inline-block tracking-widest"
+        className="text-xs text-[#555] hover:text-[#f5f5dc] transition-colors mb-8 inline-block tracking-widest"
       >
         ← Back to Posts
       </Link>

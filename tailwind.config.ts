@@ -12,7 +12,7 @@ const config: Config = {
         mono: ["'Courier New'", "Courier", "monospace"],
       },
       colors: {
-        accent: "#c8f000",
+        accent: "#f5f5dc",
         bg: "#0d0d0d",
         surface: "#141414",
         border: "#222",

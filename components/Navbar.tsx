@@ -29,7 +29,7 @@ export default function Navbar() {
   return (
     <>
       <header className="border-b border-[#222] py-6 flex items-center justify-between w-full px-4">
-        <Link href="/" className="text-white font-bold tracking-widest text-base uppercase hover:text-[#c8f000] transition-colors">
+        <Link href="/" className="text-white font-bold tracking-widest text-base uppercase hover:text-[#f5f5dc] transition-colors">
           Kymu
         </Link>
         
@@ -43,7 +43,7 @@ export default function Navbar() {
                 href={href}
                 className={`text-sm tracking-widest uppercase transition-colors border-b-2 pb-0.5 ${
                   active
-                    ? "text-[#c8f000] border-[#c8f000]"
+                    ? "text-[#f5f5dc] border-[#f5f5dc]"
                     : "text-[#888] border-transparent hover:text-[#d4d4d4]"
                 }`}
               >
@@ -56,7 +56,7 @@ export default function Navbar() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-[#c8f000] hover:text-white transition-colors"
+          className="md:hidden text-[#f5f5dc] hover:text-white transition-colors"
           aria-label="Toggle menu"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -81,7 +81,7 @@ export default function Navbar() {
                 onClick={() => setIsOpen(false)}
                 className={`px-4 py-3 text-sm tracking-widest uppercase transition-colors border-l-4 ${
                   active
-                    ? "text-[#c8f000] border-[#c8f000] bg-[#0f0f0f]"
+                    ? "text-[#f5f5dc] border-[#f5f5dc] bg-[#0f0f0f]"
                     : "text-[#888] border-transparent hover:text-[#d4d4d4]"
                 }`}
               >
