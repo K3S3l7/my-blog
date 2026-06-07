@@ -53,12 +53,12 @@ export default function CVEsPage() {
             </div>
             <p className="text-xs text-[#999] mb-3">{cve.description}</p>
             <div className="flex items-center justify-between">
-              <span className="text-xs text-[#f5f5dc] tracking-widest">{cve.id}</span>
+              <span className="text-xs text-[#ffffa3] tracking-widest">{cve.id}</span>
               <a
                 href={cve.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs text-[#f5f5dc] hover:text-white transition-colors"
+                className="text-xs text-[#ffffa3] hover:text-white transition-colors"
               >
                 → ADVISORY
               </a>

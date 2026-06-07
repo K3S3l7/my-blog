@@ -21,7 +21,7 @@ export default function ContactPage() {
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#888] hover:text-[#f5f5dc] transition-colors"
+              className="text-[#888] hover:text-[#ffffa3] transition-colors"
             >
               {value}
             </a>
@@ -30,7 +30,7 @@ export default function ContactPage() {
       </ul>
 
       <div className="mt-10 p-4 border border-[#1f1f1f] text-xs text-[#555]">
-        <span className="text-[#f5f5dc]">PGP</span> — Public key available on request.
+        <span className="text-[#ffffa3]">PGP</span> — Public key available on request.
       </div>
     </div>
   );

@@ -36,7 +36,7 @@ export default function AboutPage() {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#888] hover:text-[#f5f5dc] transition-colors"
+                className="text-[#888] hover:text-[#ffffa3] transition-colors"
               >
                 → {label}
               </a>
