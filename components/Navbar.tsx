@@ -44,7 +44,7 @@ export default function Navbar() {
                 className={`text-sm tracking-widest uppercase transition-colors border-b-2 pb-0.5 ${
                   active
                     ? "text-[#ffffa3] border-[#ffffa3]"
-                    : "text-[#888] border-transparent hover:text-[#d4d4d4]"
+                    : "text-[#888] border-transparent hover:text-[#ffffa3]"
                 }`}
               >
                 {label}
@@ -82,7 +82,7 @@ export default function Navbar() {
                 className={`px-4 py-3 text-sm tracking-widest uppercase transition-colors border-l-4 ${
                   active
                     ? "text-[#ffffa3] border-[#ffffa3] bg-[#0f0f0f]"
-                    : "text-[#888] border-transparent hover:text-[#d4d4d4]"
+                    : "text-[#888] border-transparent hover:text-[#ffffa3]"
                 }`}
               >
                 {label}
