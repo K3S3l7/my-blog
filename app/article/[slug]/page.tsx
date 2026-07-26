@@ -8,6 +8,67 @@ interface PageProps {
     slug: string;
   };
 }
+function parseInline(text: string, keyPrefix: string): React.ReactNode[] {
+  const nodes: React.ReactNode[] = [];
+  // Matches images ![alt](url), links [text](url), bold **text**, inline `code`
+  const regex = /!\[([^\]]*)\]\(([^)]+)\)|\[([^\]]*)\]\(([^)]+)\)|\*\*([^*]+)\*\*|`([^`]+)`/g;
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+  let idx = 0;
+
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      nodes.push(text.slice(lastIndex, match.index));
+    }
+
+    if (match[1] !== undefined) {
+      // Image: ![alt](url)
+      nodes.push(
+        <img
+          key={`${keyPrefix}-img-${idx++}`}
+          src={match[2]}
+          alt={match[1]}
+          className="my-4 rounded max-w-full h-auto"
+        />
+      );
+    } else if (match[3] !== undefined) {
+      // Link: [text](url)
+      nodes.push(
+        <a
+          key={`${keyPrefix}-a-${idx++}`}
+          href={match[4]}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#ffffa3] underline hover:text-white transition-colors"
+        >
+          {match[3]}
+        </a>
+      );
+    } else if (match[5] !== undefined) {
+      // Bold: **text**
+      nodes.push(<strong key={`${keyPrefix}-b-${idx++}`}>{match[5]}</strong>);
+    } else if (match[6] !== undefined) {
+      // Inline code: `code`
+      nodes.push(
+        <code
+          key={`${keyPrefix}-c-${idx++}`}
+          className="bg-[#1a1a1a] px-1 py-0.5 rounded text-sm"
+          style={{ fontFamily: "Courier New, monospace" }}
+        >
+          {match[6]}
+        </code>
+      );
+    }
+
+    lastIndex = regex.lastIndex;
+  }
+
+  if (lastIndex < text.length) {
+    nodes.push(text.slice(lastIndex));
+  }
+
+  return nodes;
+}
 
 function parseMarkdown(content: string): JSX.Element[] {
   const lines = content.split('\n');
