@@ -114,51 +114,53 @@ function parseMarkdown(content: string): JSX.Element[] {
       );
       i++; // Skip closing ```
     }
-    // Headers
-    else if (line.startsWith('### ')) {
-      elements.push(
-        <h3 key={`h3-${i}`} className="text-lg font-bold mt-6 mb-3" style={{ color: "#d4d4d4", fontFamily: "'Merriweather', serif" }}>
-          {line.slice(4)}
-        </h3>
-      );
-      i++;
-    } else if (line.startsWith('## ')) {
-      elements.push(
-        <h2 key={`h2-${i}`} className="text-xl font-bold mt-8 mb-4" style={{ color: "#d4d4d4", fontFamily: "'Merriweather', serif" }}>
-          {line.slice(3)}
-        </h2>
-      );
-      i++;
-    } else if (line.startsWith('# ')) {
-      elements.push(
-        <h1 key={`h1-${i}`} className="text-2xl font-bold mt-10 mb-5" style={{ color: "#d4d4d4", fontFamily: "'Merriweather', serif" }}>
-          {line.slice(2)}
-        </h1>
-      );
-      i++;
-    }
-    // Lists
-    else if (line.startsWith('- ')) {
-      elements.push(
-        <li key={`li-${i}`} className="ml-4 mb-2" style={{ color: "#d4d4d4", fontFamily: "'Merriweather', serif" }}>
-          {line.slice(2)}
-        </li>
-      );
-      i++;
-    }
-    // Empty line
-    else if (line.trim() === '') {
-      i++;
-    }
-    // Paragraph
-    else {
-      elements.push(
-        <p key={`p-${i}`} className="mb-4 leading-7" style={{ color: "#d4d4d4", fontFamily: "'Merriweather', serif" }}>
-          {line}
-        </p>
-      );
-      i++;
-    }
+// Headers
+else if (line.startsWith('### ')) {
+  elements.push(
+    <h3 key={`h3-${i}`} className="text-lg font-bold mt-6 mb-3" style={{ color: "#d4d4d4", fontFamily: "'Merriweather', serif" }}>
+      {parseInline(line.slice(4), `h3-${i}`)}
+    </h3>
+  );
+  i++;
+}
+else if (line.startsWith('## ')) {
+  elements.push(
+    <h2 key={`h2-${i}`} className="text-xl font-bold mt-8 mb-4" style={{ color: "#d4d4d4", fontFamily: "'Merriweather', serif" }}>
+      {parseInline(line.slice(3), `h2-${i}`)}
+    </h2>
+  );
+  i++;
+}
+else if (line.startsWith('# ')) {
+  elements.push(
+    <h1 key={`h1-${i}`} className="text-2xl font-bold mt-10 mb-5" style={{ color: "#d4d4d4", fontFamily: "'Merriweather', serif" }}>
+      {parseInline(line.slice(2), `h1-${i}`)}
+    </h1>
+  );
+  i++;
+}
+// Lists
+else if (line.startsWith('- ')) {
+  elements.push(
+    <li key={`li-${i}`} className="ml-4 mb-2" style={{ color: "#d4d4d4", fontFamily: "'Merriweather', serif" }}>
+      {parseInline(line.slice(2), `li-${i}`)}
+    </li>
+  );
+  i++;
+}
+// Empty line
+else if (line.trim() === '') {
+  i++;
+}
+// Paragraph
+else {
+  elements.push(
+    <p key={`p-${i}`} className="mb-4 leading-7" style={{ color: "#d4d4d4", fontFamily: "'Merriweather', serif" }}>
+      {parseInline(line, `p-${i}`)}
+    </p>
+  );
+  i++;
+}
   }
 
   return elements;
