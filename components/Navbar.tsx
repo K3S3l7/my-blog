@@ -16,13 +16,23 @@ export default function Navbar() {
   const [dark, setDark] = useState(false);
 
   useEffect(() => {
-    setDark(document.documentElement.getAttribute("data-theme") === "dark");
+    const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+    setDark(isDark);
+    setFavicon(isDark);
   }, []);
+
+  const setFavicon = (darkMode: boolean) => {
+    const link = document.querySelector<HTMLLinkElement>('link[rel="icon"]');
+    if (link) {
+      link.href = darkMode ? "/icon.png" : "/icon-light.png";
+    }
+  };
 
   const toggleTheme = () => {
     const next = !dark;
     setDark(next);
     document.documentElement.setAttribute("data-theme", next ? "dark" : "light");
+    setFavicon(next);
     try {
       localStorage.setItem("theme", next ? "dark" : "light");
     } catch {}

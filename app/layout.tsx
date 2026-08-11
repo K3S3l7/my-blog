@@ -6,7 +6,10 @@ export const metadata: Metadata = {
   title: "kymu.dev — security research",
   description: "Writeups and notes from a bug bounty hunter.",
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/icon.png", type: "image/png", sizes: "64x64" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
   },
 };
 
