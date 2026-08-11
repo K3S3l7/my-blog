@@ -103,7 +103,8 @@ a {
 .wrap {
   max-width: 60rem;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 .code-head {

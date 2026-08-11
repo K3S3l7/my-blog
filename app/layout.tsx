@@ -26,7 +26,7 @@ export default function RootLayout({
       </head>
       <body className="font-body text-ink bg-paper min-h-screen flex flex-col">
         <Navbar />
-        <main className="wrap pt-16 sm:pt-24 pb-16 sm:pb-24 flex-1 w-full">{children}</main>
+        <main className="wrap pt-20 sm:pt-24 pb-16 sm:pb-24 flex-1 w-full">{children}</main>
         <footer className="wrap pb-12 pt-4 border-t border-line text-muted text-sm font-mono">
           <span>© {new Date().getFullYear()} Kymu</span>
         </footer>
