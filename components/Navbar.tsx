@@ -38,7 +38,8 @@ export default function Navbar() {
     } catch {}
   };
 
-  const path = pathname.replace(/^\/my-blog/, "") || "/";
+  const path =
+    pathname.replace(/^\/my-blog/, "").replace(/\/+$/, "") || "/";
 
   const isActive = (href: string) => {
     if (href === "/") {
