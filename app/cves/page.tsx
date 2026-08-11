@@ -19,50 +19,51 @@ const cves = [
   },
 ];
 
-const severityColor: Record<string, string> = {
-  CRITICAL: "text-red-500",
-  HIGH: "text-orange-500",
-  MEDIUM: "text-yellow-500",
-  LOW: "text-green-400",
+const severityStyle: Record<string, string> = {
+  CRITICAL: "bg-[var(--sev-critical-bg)] text-[var(--sev-critical)]",
+  HIGH: "bg-[var(--sev-high-bg)] text-[var(--sev-high)]",
+  MEDIUM: "bg-[var(--sev-medium-bg)] text-[var(--sev-medium)]",
+  LOW: "bg-[var(--sev-low-bg)] text-[var(--sev-low)]",
 };
 
 export default function CVEsPage() {
   return (
     <div>
-      <div className="flex items-center justify-between mb-10 text-xs text-[#555] tracking-widest uppercase">
-        <span>— CVEs</span>
-        <span>{cves.length} entries</span>
-      </div>
+      <h1 className="font-display text-4xl sm:text-5xl font-medium tracking-tight leading-tight">
+        CVEs<span className="text-accent">.</span>
+      </h1>
+      <p className="mt-6 text-ink-soft leading-relaxed max-w-xl">
+        Publicly disclosed vulnerabilities, with advisories linked where
+        they&apos;re available.
+      </p>
 
-      <ul className="space-y-6">
+      <ul className="mt-10 border-t border-line">
         {cves.map((cve) => (
           <li
             key={cve.id}
-            className="border border-[#1f1f1f] p-5 hover:border-[#333] transition-colors"
+            className="py-6 border-b border-line"
           >
-            <div className="flex items-start justify-between gap-4 mb-2">
-              <div>
-                <h2 className="text-white text-sm font-bold mt-1">{cve.title}</h2>
-              </div>
-              <div className="text-right shrink-0">
-                <span className={`text-xs font-bold tracking-widest ${severityColor[cve.severity] ?? "text-[#888]"}`}>
-                  {cve.severity}
-                </span>
-                <p className="text-xs text-grey mt-0.5">CVSS {cve.cvss}</p>
-              </div>
-            </div>
-            <p className="text-xs text-[#999] mb-3">{cve.description}</p>
-            <div className="flex items-center justify-between">
-              <span className="text-xs text-[#ffffa3] tracking-widest">{cve.id}</span>
-              <a
-                href={cve.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs text-[#ffffa3] hover:text-white transition-colors"
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-2">
+              <span
+                className={`inline-block px-2 py-0.5 font-mono text-[11px] font-medium tracking-wider ${severityStyle[cve.severity] ?? "bg-neutral-200 text-neutral-700"}`}
               >
-                → ADVISORY
-              </a>
+                {cve.severity}
+              </span>
+              <span className="font-mono text-xs text-accent">{cve.id}</span>
+              <span className="font-mono text-xs text-muted">CVSS {cve.cvss}</span>
             </div>
+            <h2 className="font-display text-xl text-ink mb-2">{cve.title}</h2>
+            <p className="text-[15px] leading-relaxed text-ink-soft mb-3">
+              {cve.description}
+            </p>
+            <a
+              href={cve.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono text-xs text-accent hover:text-accent-deep underline underline-offset-4 transition-colors"
+            >
+              Advisory ↗
+            </a>
           </li>
         ))}
       </ul>

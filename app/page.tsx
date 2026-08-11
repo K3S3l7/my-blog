@@ -2,39 +2,40 @@ import Link from "next/link";
 import { getAllBlogPosts } from "@/lib/blog";
 
 function formatDate(dateString: string): string {
-  try {
-    const date = new Date(dateString);
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, "0");
-    const day = String(date.getDate()).padStart(2, "0");
-    return `${year} · ${month} · ${day}`;
-  } catch {
-    return dateString;
-  }
+  const date = new Date(dateString);
+  if (isNaN(date.getTime())) return dateString;
+  return date.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
 }
 
 export default function BlogPage() {
   const posts = getAllBlogPosts();
 
   return (
-    <div style={{ fontFamily: "'Space Mono', monospace" }}>
-      <div className="flex items-center justify-between mb-12 text-xs text-[#555] tracking-widest uppercase border-b border-[#1a1a1a] pb-4">
-        <span>— Posts</span>
-        <span>{posts.length} / {posts.length}</span>
+    <div>
+      <div className="flex items-baseline justify-between mb-4 font-mono text-xs text-muted uppercase tracking-[0.15em]">
+        <h2>Articles</h2>
+        <span>{String(posts.length).padStart(2, "0")}</span>
       </div>
 
-      <ul className="divide-y divide-[#141414]">
-        {posts.map((post) => (
+      <ul className="border-t border-line">
+        {posts.map((post, i) => (
           <li key={post.slug}>
             <Link
               href={`/article/${post.slug}`}
-              className="flex items-baseline gap-8 py-5 group hover:bg-[#0f0f0f] px-3 -mx-3 transition-colors"
+              className="group flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-6 py-5 border-b border-line"
             >
-              <span className="text-xs text-[#6a6a6a] w-32 shrink-0 tracking-widest font-mono">
+              <span className="font-mono text-xs text-muted sm:w-24 sm:shrink-0 tabular-nums">
                 {formatDate(post.date)}
               </span>
-              <span className="group-hover:text-[#ffffa3] transition-colors text-base text-white" style={{ fontFamily: "'Space Mono', monospace" }}>
+              <span className="font-display text-lg sm:text-xl leading-snug text-ink group-hover:text-accent transition-colors">
                 {post.title}
+              </span>
+              <span className="hidden sm:block ml-auto font-mono text-sm text-muted opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all">
+                ↗
               </span>
             </Link>
           </li>

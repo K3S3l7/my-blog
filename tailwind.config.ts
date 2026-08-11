@@ -9,15 +9,21 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        mono: ["'Courier New'", "Courier", "monospace"],
+        display: ["Fraunces", "Georgia", "serif"],
+        body: ["Spectral", "Georgia", "serif"],
+        mono: ["'JetBrains Mono'", "Menlo", "monospace"],
       },
       colors: {
-        accent: "#f5f5dc",
-        bg: "#0d0d0d",
-        surface: "#141414",
-        border: "#222",
-        muted: "#555",
-        text: "#d4d4d4",
+        paper: "var(--paper)",
+        raised: "var(--paper-raised)",
+        sunken: "var(--paper-sunken)",
+        ink: "var(--ink)",
+        "ink-soft": "var(--ink-soft)",
+        muted: "var(--muted)",
+        line: "var(--line)",
+        "line-strong": "var(--line-strong)",
+        accent: "var(--accent)",
+        "accent-deep": "var(--accent-deep)",
       },
     },
   },

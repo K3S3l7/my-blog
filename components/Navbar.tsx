@@ -1,11 +1,11 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const navLinks = [
-  { href: "/", label: "Blog" },
-  { href: "/about", label: "About Me" },
+  { href: "/", label: "Articles" },
+  { href: "/about", label: "About" },
   { href: "/cves", label: "CVEs" },
   { href: "/contact", label: "Contact" },
 ];
@@ -13,39 +13,52 @@ const navLinks = [
 export default function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  
-  // Remove basePath from pathname since we have basePath: "/my-blog" in next.config.js
+  const [dark, setDark] = useState(false);
+
+  useEffect(() => {
+    setDark(document.documentElement.getAttribute("data-theme") === "dark");
+  }, []);
+
+  const toggleTheme = () => {
+    const next = !dark;
+    setDark(next);
+    document.documentElement.setAttribute("data-theme", next ? "dark" : "light");
+    try {
+      localStorage.setItem("theme", next ? "dark" : "light");
+    } catch {}
+  };
+
   const path = pathname.replace(/^\/my-blog/, "") || "/";
 
   const isActive = (href: string) => {
-    // For home page, match "/" or any article path
     if (href === "/") {
       return path === "/" || path.startsWith("/article/");
     }
-    // For other pages, exact match
     return path === href;
   };
 
   return (
-    <>
-      <header className="border-b border-[#222] py-6 flex items-center justify-between w-full px-4">
-        <Link href="/" className="text-white font-bold tracking-widest text-base uppercase hover:text-[#ffffa3] transition-colors">
-          Kymu
+    <header className="sticky top-0 z-20 border-b border-line bg-paper/90 backdrop-blur-sm">
+      <div className="wrap h-16 flex items-center justify-between">
+        <Link
+          href="/"
+          className="font-display text-xl font-semibold tracking-tight text-ink"
+        >
+          Kymu<span className="text-accent">.</span>
         </Link>
-        
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex gap-10">
+
+        <nav className="hidden md:flex items-center gap-8 font-mono text-sm">
           {navLinks.map(({ href, label }) => {
             const active = isActive(href);
             return (
               <Link
                 key={href}
                 href={href}
-                className={`text-sm tracking-widest uppercase transition-colors border-b-2 pb-0.5 ${
+                className={
                   active
-                    ? "text-[#ffffa3] border-[#ffffa3]"
-                    : "text-[#888] border-transparent hover:text-[#ffffa3]"
-                }`}
+                    ? "text-accent"
+                    : "text-ink-soft hover:text-ink transition-colors"
+                }
               >
                 {label}
               </Link>
@@ -53,44 +66,62 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Mobile Menu Button */}
+        <button
+          onClick={toggleTheme}
+          className="ml-2 text-ink-soft hover:text-accent transition-colors"
+          aria-label={dark ? "Switch to light theme" : "Switch to dark theme"}
+          title={dark ? "Switch to light theme" : "Switch to dark theme"}
+        >
+          {dark ? (
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="4" />
+              <path strokeLinecap="round" d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4l1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4m11.4-11.4l1.4-1.4" />
+            </svg>
+          ) : (
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+            </svg>
+          )}
+        </button>
+
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-[#ffffa3] hover:text-white transition-colors"
+          className="md:hidden text-ink hover:text-accent transition-colors"
           aria-label="Toggle menu"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
             {isOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <path strokeLinecap="round" d="M6 18L18 6M6 6l12 12" />
             ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              <path strokeLinecap="round" d="M4 7h16M4 12h16M4 17h16" />
             )}
           </svg>
         </button>
-      </header>
+      </div>
 
-      {/* Mobile Navigation */}
       {isOpen && (
-        <nav className="md:hidden bg-[#0a0a0a] border-b border-[#222] flex flex-col">
-          {navLinks.map(({ href, label }) => {
-            const active = isActive(href);
-            return (
-              <Link
-                key={href}
-                href={href}
-                onClick={() => setIsOpen(false)}
-                className={`px-4 py-3 text-sm tracking-widest uppercase transition-colors border-l-4 ${
-                  active
-                    ? "text-[#ffffa3] border-[#ffffa3] bg-[#0f0f0f]"
-                    : "text-[#888] border-transparent hover:text-[#ffffa3]"
-                }`}
-              >
-                {label}
-              </Link>
-            );
-          })}
+        <nav className="md:hidden border-t border-line bg-paper">
+          <div className="wrap py-2 flex flex-col">
+            {navLinks.map(({ href, label }) => {
+              const active = isActive(href);
+              return (
+                <Link
+                  key={href}
+                  href={href}
+                  onClick={() => setIsOpen(false)}
+                  className={`py-3 font-mono text-sm border-l-2 pl-3 -ml-0.5 ${
+                    active
+                      ? "text-accent border-accent"
+                      : "text-ink-soft border-transparent hover:text-ink"
+                  }`}
+                >
+                  {label}
+                </Link>
+              );
+            })}
+          </div>
         </nav>
       )}
-    </>
+    </header>
   );
 }
