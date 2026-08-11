@@ -116,10 +116,19 @@ function parseInline(text: string, keyPrefix: string): React.ReactNode[] {
 function renderCodeBlock(language: string, lines: string[], key: string) {
   let codeContent = lines.join('\n');
   let highlighted = codeContent;
+  let label = language;
 
-  try {
-    highlighted = hljs.highlight(codeContent, { language, ignoreIllegals: true }).value;
-  } catch {
+  if (language) {
+    try {
+      highlighted = hljs.highlight(codeContent, { language, ignoreIllegals: true }).value;
+    } catch {
+      try {
+        highlighted = hljs.highlightAuto(codeContent).value;
+      } catch {
+        highlighted = codeContent;
+      }
+    }
+  } else {
     try {
       highlighted = hljs.highlightAuto(codeContent).value;
     } catch {
@@ -130,7 +139,7 @@ function renderCodeBlock(language: string, lines: string[], key: string) {
   return (
     <div key={key} className="my-6">
       <div className="code-head">
-        <span>{language}</span>
+        {label && <span>{label}</span>}
         <code>{lines.length} lines</code>
       </div>
       <pre className="bg-sunken border border-line rounded-b-lg overflow-x-auto py-4 px-5">
@@ -195,7 +204,7 @@ function parseMarkdown(content: string): JSX.Element[] {
     const line = lines[i];
 
     if (line.startsWith('```')) {
-      const language = line.slice(3).trim() || 'text';
+      const language = line.slice(3).trim();
       const codeLines: string[] = [];
       i++;
 
