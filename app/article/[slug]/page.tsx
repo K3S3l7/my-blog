@@ -33,7 +33,15 @@ function parseInline(text: string, keyPrefix: string): React.ReactNode[] {
       );
     } else if (match[3] !== undefined) {
       if (match[4].startsWith('#')) {
-        nodes.push(match[3]);
+        nodes.push(
+          <a
+            key={`${keyPrefix}-a-${idx++}`}
+            href={match[4]}
+            className="text-accent underline decoration-line-strong underline-offset-4 hover:text-accent-deep hover:decoration-accent transition-colors"
+          >
+            {match[3]}
+          </a>
+        );
       } else {
         nodes.push(
           <a
@@ -138,7 +146,50 @@ function renderCodeBlock(language: string, lines: string[], key: string) {
 function parseMarkdown(content: string): JSX.Element[] {
   const lines = content.split('\n');
   const elements: JSX.Element[] = [];
+  const usedIds = new Set<string>();
   let i = 0;
+
+  const slugify = (text: string): string =>
+    text
+      .toLowerCase()
+      .replace(/[^\w\s-]/g, '')
+      .trim()
+      .replace(/[\s]+/g, '-');
+
+  const headingId = (text: string, explicit?: string): string => {
+    let base = (explicit || slugify(text)).trim() || 'section';
+    let id = base;
+    let n = 2;
+    while (usedIds.has(id)) {
+      id = `${base}-${n++}`;
+    }
+    usedIds.add(id);
+    return id;
+  };
+
+  const parseHeading = (
+    headingLine: string,
+    prefix: string,
+    level: 'h1' | 'h2' | 'h3',
+    cls: string,
+    key: string
+  ) => {
+    const rest = headingLine.slice(prefix.length);
+    const anchor = rest.match(/\s*\{#([^}]*)\}\s*$/);
+    const clean = anchor ? rest.slice(0, anchor.index) : rest;
+    const id = headingId(clean, anchor?.[1]);
+    const Tag = level;
+    elements.push(
+      <Tag
+        key={key}
+        id={id}
+        className={`${cls} scroll-mt-28`}
+      >
+        {parseInline(clean, key)}
+      </Tag>
+    );
+    i++;
+  };
 
   while (i < lines.length) {
     const line = lines[i];
@@ -159,32 +210,17 @@ function parseMarkdown(content: string): JSX.Element[] {
     }
 
     if (line.startsWith('### ')) {
-      elements.push(
-        <h3 key={`h3-${i}`} className="font-display text-2xl font-medium text-ink mt-10 mb-3">
-          {parseInline(line.slice(4).replace(/\s*\{#[^}]*\}\s*$/, ''), `h3-${i}`)}
-        </h3>
-      );
-      i++;
+      parseHeading(line, '### ', 'h3', 'font-display text-2xl font-medium text-ink mt-10 mb-3', `h3-${i}`);
       continue;
     }
 
     if (line.startsWith('## ')) {
-      elements.push(
-        <h2 key={`h2-${i}`} className="font-display text-3xl font-medium text-ink mt-12 mb-4">
-          {parseInline(line.slice(3).replace(/\s*\{#[^}]*\}\s*$/, ''), `h2-${i}`)}
-        </h2>
-      );
-      i++;
+      parseHeading(line, '## ', 'h2', 'font-display text-3xl font-medium text-ink mt-12 mb-4', `h2-${i}`);
       continue;
     }
 
     if (line.startsWith('# ')) {
-      elements.push(
-        <h1 key={`h1-${i}`} className="font-display text-3xl font-medium text-ink mt-12 mb-4">
-          {parseInline(line.slice(2).replace(/\s*\{#[^}]*\}\s*$/, ''), `h1-${i}`)}
-        </h1>
-      );
-      i++;
+      parseHeading(line, '# ', 'h1', 'font-display text-3xl font-medium text-ink mt-12 mb-4', `h1-${i}`);
       continue;
     }
 
