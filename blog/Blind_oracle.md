@@ -111,7 +111,7 @@ RIGHT extension (append until dead-end):
   "secretnot"  → 200 → seed = "secrernot"
   "secretnote" → 200 → seed = "secretnote"
   "secretnotey" → 204, "secretnotew" → 204, ... all 204
-  → RIGHT BOUNDARY: "secret"
+  → RIGHT BOUNDARY: "secretnote"
 
 Complete: "secretnote"
 ```
