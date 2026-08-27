@@ -144,7 +144,7 @@ This worked beautifully for our first few test items — `kymu_@wearehackerone.c
 
 ## Automating The Process 
 Using DeepSeek i vibecoded a script that will do the job
-<img width="1150" height="260" alt="Adobe Express - test" src="https://k3s3l7.ink/Adobe%20Express%20-%20test.gif" />
+<img width="1150" height="260" alt="Adobe Express - test" src="https://k3s3l7.ink/tesxs.gif" />
 
 ---
 
