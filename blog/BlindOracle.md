@@ -11,9 +11,9 @@ date: 2026-08-27
 
 ## Introduction
 
-This post walks through the discovery and exploitation of a blind search oracle in a cloud-based platform used for design collaboration. The platform lets organizations manage items, workflows, etc... — all through a web interface with granular role-based permissions.
+This post walks through the discovery and exploitation of a blind search oracle in a cloud-based platform used for design collaboration. The platform lets organizations manage items, workflows, etc..., all through a web interface with granular role-based permissions.
 
-The setup involved two accounts: an administrator account used to configure permissions, and a second account whose privileges were deliberately stripped. From the admin panel, access to the **Attachments** tab was removed, and visibility of certain metadata fields — including creator email addresses — was disabled. The second account could browse items and use the search bar, but the restricted fields were nowhere to be found in the UI or The API.
+The setup involved two accounts: an administrator account used to configure permissions, and a second account whose privileges were deliberately stripped. From the admin panel, access to the **Notes** tab was removed, and visibility of certain metadata fields, including creator email addresses — was disabled. The second account could browse items and use the search bar, but the restricted fields were nowhere to be found in the UI or The API.
 
 The search bar, however, had other ideas.
 
