@@ -149,7 +149,7 @@ Using DeepSeek i vibecoded a script that will do the job
 ---
 
 ## Conclusion 
-Search endpoints that return binary signals (match / no match) against privileged fields are effectively read-access to those fields — just a slower, noisier version of it. This vulnerability is not specific to any particular platform or search engine; any search API that indexes fields beyond the user's UI permissions and returns match/no-match responses is susceptible to the same class of attack.
+Search endpoints that return binary signals (match / no match) against privileged fields are effectively read-access to those fields, just a slower, noisier version of it. This vulnerability is not specific to any particular platform or search engine; any search API that indexes fields beyond the user's UI permissions and returns match/no-match responses is susceptible to the same class of attack.
 
 The bidirectional extension technique presented here is generalizable. Given any blind substring oracle, whether it's a search API, a database `LIKE` query leaking through error messages, or a timing side-channel, the algorithm reconstructs the full value without ever needing to guess the first character.
 
