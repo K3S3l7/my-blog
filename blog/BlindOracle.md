@@ -2,7 +2,6 @@
 title: Walking Backwards Through a Search Oracle
 date: 2026-08-28
 ---
-# Walking Backwards Through a Search Oracle
 
 <img width="1248" height="832" alt="KJz2J" src="https://k3s3l7.ink/JmGeL.jpg" />
 
