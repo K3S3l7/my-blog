@@ -24,7 +24,7 @@ The search bar, however, had other ideas.
 The platform features a global search bar at the top of every page. It performs a full-text search across items, returning results as you type. Behind the scenes, each keystroke fires a request like this:
 
 ```http
-GET /api/search?limit=50&offset=0&page=1
+GET /api/search?limit=50&offset=0&page=1 HTTP/2
     &query=t&revision=1
 ```
 
