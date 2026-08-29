@@ -13,12 +13,12 @@ export default function AboutPage() {
         Karim Belfodil<span className="text-accent">.</span>
       </h1>
       <p className="mt-2 font-mono text-sm text-muted">
-        A.K.A. Kymu — security researcher
+        A.K.A. Kymu — cyber security researcher
       </p>
 
       <div className="mt-10 space-y-5 text-[17px] leading-relaxed text-ink-soft">
         <p>
-          I hunt bugs in web applications and whatever else is exposed. I&apos;m
+          More than 2 Years of experience is cyber security, I Look for bugs in web applications and whatever else is exposed. I&apos;m
           drawn to logic flaws, injection attacks, DoS angles, and anything that
           chains two small bugs into one big one.
         </p>
