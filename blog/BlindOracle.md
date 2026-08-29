@@ -97,7 +97,7 @@ Seed: "r"              (chosen arbitrarily , any matching char works)
 LEFT extension (prepend until dead-end):
   "r"   → 200 → seed = "r"
   "cr"  → 200 → seed = "ret"
-  "ecr"  → 204 → skip
+  "acr"  → 204 → skip
   "secr" → 200 → seed = "cret"
   "asecr" → 204, "bsecr" → 204, ... all 204
   → LEFT BOUNDARY: "secr"
