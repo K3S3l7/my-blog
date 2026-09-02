@@ -18,7 +18,7 @@ export default function AboutPage() {
 
       <div className="mt-10 space-y-5 text-[17px] leading-relaxed text-ink-soft">
         <p>
-          More than 2 Years of experience is cyber security, I Look for bugs in web applications and whatever else is exposed. I&apos;m
+          More than 2 Years of experience is cyber security, I Look for bugs in web applications & Softwares and whatever else is exposed. I&apos;m
           drawn to logic flaws, injection attacks, DoS angles, and anything that
           chains two small bugs into one big one.
         </p>
