@@ -7,7 +7,7 @@ const cves = [
     description:
       "A maliciously crafted IFC file, when parsed through certain Autodesk products, can trigger an Uncontrolled Recursion vulnerability. A malicious actor may leverage this vulnerability to cause the application to terminate unexpectedly, resulting in a denial-of-service. Exploitation requires a user to open a specially crafted IFC file.",
     link: "https://www.autodesk.com/trust/security-advisories/adsk-sa-2026-0015",
-  }
+  },
   {
     id: "CVE-2026-0533",
     title: "Stored XSS in Autodesk Fusion Client",
